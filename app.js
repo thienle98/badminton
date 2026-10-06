@@ -302,7 +302,7 @@ function calc(key) {
   const collected = sum((x) => x.collected);
   return {
     key, M, sessions: per, att, incRegular, incGuest, incPass, outside, unpaid, court, shuttleCost, other, cost, burden, share, rows,
-    duesPaid, duesExpected: rows.reduce((a, r) => a + r.expected, 0), fundCash: duesPaid + collected - fundCost,
+    duesPaid, duesExpected: rows.reduce((a, r) => a + r.expected, 0), fundCash: duesPaid + collected - fundCost, collected, fundCost,
     played: per.filter((x) => x.s.status === 'play' && x.head > 0).length,
     passed: per.filter((x) => x.s.status === 'pass').length,
     shuttle: shuttleStock(key),
@@ -491,7 +491,9 @@ const VIEWS = {
         <div class="big">${money(C.share)}</div>
         <div class="formula">(Chi ${money(C.cost)} − Thu ngoài ${money(C.outside)}) ÷ ${n} người</div>
       </div>
-      <div class="hero-side"><span>Quỹ đang giữ</span><b>${money(C.fundCash)}</b><span class="small">${C.played} buổi đã đánh · ${C.passed} buổi pass</span></div>
+      <div class="hero-side"><span>Quỹ đang giữ</span><b>${money(C.fundCash)}</b>
+        <span class="small">Đóng quỹ ${moneyShort(C.duesPaid)} + Đã thu ${moneyShort(C.collected)} − Đã chi ${moneyShort(C.fundCost)}</span>
+        <span class="small">${C.played} buổi đã đánh · ${C.passed} buổi pass</span></div>
     </section>
     <div class="kpis">
       ${kpi('Tổng chi', money(C.cost), `Sân ${moneyShort(C.court)} · Cầu ${moneyShort(C.shuttleCost)} · Khác ${moneyShort(C.other)}`)}
@@ -622,7 +624,10 @@ const VIEWS = {
       <div class="formula-box">
         <div class="eq"><span>Tổng thành viên đã góp</span><b>${money(C.rows.reduce((a, r) => a + r.contributed, 0))}</b></div>
         <div class="eq"><span>Tổng cần hoàn (+) / thu thêm (−)</span><b class="${total >= 0 ? 'pos' : 'neg'}">${signed(total)}</b></div>
-        <div class="eq"><span>Quỹ đang giữ (tiền mặt)</span><b>${money(C.fundCash)}</b></div>
+        <div class="eq"><span>Thành viên đã đóng quỹ</span><b>${money(C.duesPaid)}</b></div>
+        <div class="eq"><span>+ Đã thu thực tế từ các buổi (chưa tính người còn nợ)</span><b>${money(C.collected)}</b></div>
+        <div class="eq"><span>− Đã chi từ quỹ (tiền sân cả tháng, cầu và chi khác do quỹ trả)</span><b>${money(C.fundCost)}</b></div>
+        <div class="eq total"><span>Quỹ đang giữ (tiền mặt)</span><b>${money(C.fundCash)}</b></div>
         <div class="eq"><span>Vãng lai chưa trả</span><b class="${C.unpaid ? 'neg' : ''}">${money(C.unpaid)}</b></div>
         <p class="muted small">Quỹ đang giữ + tiền vãng lai còn nợ = tổng cần hoàn. ${C.unpaid ? 'Nên thu đủ tiền vãng lai trước khi hoàn.' : 'Đã thu đủ, có thể hoàn.'}</p>
       </div>
@@ -713,7 +718,8 @@ const VIEWS = {
           </div>
           <div class="field">Ngày đánh cố định (dùng khi tạo tháng mới)
             <div class="chips">${[1, 2, 3, 4, 5, 6, 0].map((d) => `<button class="chip ${(s.scheduleDays || []).includes(d) ? 'on' : ''}" data-click="set-day" data-day="${d}" ${dis('admin')}>${DOW_FULL[d]}</button>`).join('')}</div></div>
-          <p class="muted small">Giá mới chỉ áp dụng cho lượt điểm danh mới; các buổi đã nhập giữ nguyên số tiền.</p>
+          <p class="muted small">Mỗi lượt điểm danh lưu số tiền tại lúc nhập, nên đổi giá không làm thay đổi các buổi cũ. Muốn tính lại cả tháng theo giá mới thì bấm nút dưới.</p>
+          ${can('admin') && ui.month ? `<div><button class="btn sm" data-click="reprice">Áp giá hiện tại cho mọi buổi ${monthLabel(ui.month).toLowerCase()}</button></div>` : ''}
         </div></div>
 
       <div class="card" id="sync"><div class="card-head"><div><h2>Lưu & đồng bộ dữ liệu</h2><p>Dữ liệu chung nằm ở file <code>data.json</code> trong repo GitHub. Người sửa cần token GitHub để lưu lên; người xem không cần.</p></div></div>
@@ -950,6 +956,16 @@ const CLICK = {
     const i = arr.indexOf(d);
     if (i >= 0) arr.splice(i, 1); else arr.push(d);
     arr.sort(); save('Đã lưu lịch');
+  },
+  async reprice() {
+    if (!need('admin') || !ui.month) return;
+    if (!(await confirmBox(`Tính lại giá ${monthLabel(ui.month).toLowerCase()}?`, 'Mọi lượt vãng lai cố định và vãng lai trong tháng sẽ được đặt lại theo đơn giá hiện tại. Trạng thái đã trả giữ nguyên.', 'Tính lại', false))) return;
+    const byId = memberMap();
+    DB.months[ui.month].sessions.forEach((s) => {
+      s.regulars.forEach((r) => { r.amount = priceRegular(byId[r.memberId]); });
+      s.guests.forEach((g) => { g.amount = priceGuest(g.gender); });
+    });
+    save('Đã tính lại theo giá hiện tại');
   },
   sync() { if (need('edit')) syncNow(false); },
   async 'reload-remote'() {
