@@ -222,7 +222,8 @@ td input { padding: 6px 8px; }
 .seg button { border: 0; background: transparent; padding: 6px 12px; border-radius: 8px; font: 600 13px var(--font-body); color: var(--muted); cursor: pointer; }
 .seg button.on { background: var(--surface); color: var(--fg); box-shadow: var(--shadow); }
 
-.guest-row { display: grid; grid-template-columns: minmax(0, 1fr) 90px auto auto; gap: 8px; align-items: center; }
+.guest-row { display: grid; grid-template-columns: minmax(0, 1fr) 80px 104px auto auto; gap: 8px; align-items: center; }
+input.amount { width: 104px; text-align: right; padding: 6px 8px; }
 .paid-toggle {
   border: 1px solid var(--line); border-radius: 999px; padding: 5px 10px; font: 600 12px var(--font-body); cursor: pointer;
   background: var(--bad-soft); color: var(--bad); border-color: transparent; white-space: nowrap;
@@ -288,4 +289,5 @@ td input { padding: 6px 8px; }
   .hero::before { display: none; }
   .hero-side { text-align: left; }
   .guest-row { grid-template-columns: minmax(0, 1fr) 80px; }
+  .guest-row input.amount { width: 100%; }
 }

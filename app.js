@@ -847,14 +847,15 @@ function renderDrawer() {
       <div class="list">${regs.map((m) => {
         const r = s.regulars.find((x) => x.memberId === m.id);
         return `<div class="list-row"><button class="chip ${r ? 'on' : ''}" data-click="s-reg" data-id="${m.id}" ${ed}>${esc(m.name)} · ${m.gender === 'F' ? 'Nữ' : 'Nam'}</button>
-          ${r ? `<span style="display:flex;gap:8px;align-items:center"><span class="small">${money(r.amount)}</span><button class="paid-toggle ${r.paid ? 'on' : ''}" data-click="s-reg-paid" data-id="${m.id}" ${ed}>${r.paid ? 'Đã chuyển' : 'Chưa trả'}</button></span>` : `<span class="muted small">${money(priceRegular(m))}</span>`}</div>`;
+          ${r ? `<span style="display:flex;gap:8px;align-items:center"><input id="r-amount-${m.id}" class="amount" type="number" step="1000" min="0" value="${num(r.amount)}" data-change="r-amount" data-id="${m.id}" aria-label="Số tiền thực thu của ${esc(m.name)}" ${ed}><button class="paid-toggle ${r.paid ? 'on' : ''}" data-click="s-reg-paid" data-id="${m.id}" ${ed}>${r.paid ? 'Đã chuyển' : 'Chưa trả'}</button></span>` : `<span class="muted small">${money(priceRegular(m))}</span>`}</div>`;
       }).join('') || '<span class="muted small">Chưa có vãng lai cố định</span>'}</div></section>
 
-    <section><h3>Vãng lai ngoài</h3>
+    <section><h3>Vãng lai ngoài</h3><p class="muted small">Ô số tiền là tiền thực nhận. Ai trả khác giá (giảm giá, chuyển dư) thì sửa trực tiếp.</p>
       ${s.guests.map((g, i) => `<div class="guest-row">
         <input id="g-name-${g.id}" value="${esc(g.name)}" placeholder="Khách ${i + 1} (tên, không bắt buộc)" data-change="g-name" data-id="${g.id}" ${ed}>
         <select id="g-gender-${g.id}" data-change="g-gender" data-id="${g.id}" ${ed}><option value="M" ${g.gender !== 'F' ? 'selected' : ''}>Nam</option><option value="F" ${g.gender === 'F' ? 'selected' : ''}>Nữ</option></select>
-        <button class="paid-toggle ${g.paid ? 'on' : ''}" data-click="g-paid" data-id="${g.id}" ${ed}>${g.paid ? 'Đã chuyển' : 'Chưa trả'} · ${moneyShort(g.amount)}</button>
+        <input id="g-amount-${g.id}" class="amount" type="number" step="1000" min="0" value="${num(g.amount)}" data-change="g-amount" data-id="${g.id}" aria-label="Số tiền thực thu" ${ed}>
+        <button class="paid-toggle ${g.paid ? 'on' : ''}" data-click="g-paid" data-id="${g.id}" ${ed}>${g.paid ? 'Đã chuyển' : 'Chưa trả'}</button>
         ${can('edit') ? `<button class="btn icon ghost danger" data-click="g-del" data-id="${g.id}" aria-label="Xoá khách">${icon('trash')}</button>` : ''}</div>`).join('')}
       ${can('edit') ? `<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn sm" data-click="g-add" data-v="M">${icon('plus')}Khách nam · ${moneyShort(priceGuest('M'))}</button><button class="btn sm" data-click="g-add" data-v="F">${icon('plus')}Khách nữ · ${moneyShort(priceGuest('F'))}</button>
         ${s.guests.some((g) => !g.paid) ? '<button class="btn sm" data-click="g-all-paid">Tất cả đã chuyển</button>' : ''}</div>` : ''}
@@ -959,7 +960,7 @@ const CLICK = {
   },
   async reprice() {
     if (!need('admin') || !ui.month) return;
-    if (!(await confirmBox(`Tính lại giá ${monthLabel(ui.month).toLowerCase()}?`, 'Mọi lượt vãng lai cố định và vãng lai trong tháng sẽ được đặt lại theo đơn giá hiện tại. Trạng thái đã trả giữ nguyên.', 'Tính lại', false))) return;
+    if (!(await confirmBox(`Tính lại giá ${monthLabel(ui.month).toLowerCase()}?`, 'Mọi lượt vãng lai cố định và vãng lai trong tháng sẽ được đặt lại theo đơn giá hiện tại, kể cả số tiền đã sửa tay. Trạng thái đã trả giữ nguyên.', 'Tính lại', false))) return;
     const byId = memberMap();
     DB.months[ui.month].sessions.forEach((s) => {
       s.regulars.forEach((r) => { r.amount = priceRegular(byId[r.memberId]); });
@@ -1028,6 +1029,8 @@ const CHANGE = {
   's-shuttles'(el) { mutateSession((s) => { s.shuttles = Math.max(0, num(el.value)); }); },
   's-note'(el) { if (!need('edit')) return; const s = findSession(ui.drawer); if (s) { s.note = el.value; save(null, { quiet: true }); scheduleRender(); } },
   'g-name'(el) { if (!need('edit')) return; const s = findSession(ui.drawer); const g = s && s.guests.find((x) => x.id === el.dataset.id); if (g) { g.name = el.value; save(null, { quiet: true }); } },
+  'g-amount'(el) { mutateSession((s) => { const g = s.guests.find((x) => x.id === el.dataset.id); if (g) g.amount = Math.max(0, num(el.value)); }); },
+  'r-amount'(el) { mutateSession((s) => { const r = s.regulars.find((x) => x.memberId === el.dataset.id); if (r) r.amount = Math.max(0, num(el.value)); }); },
   'g-gender'(el) { mutateSession((s) => { const g = s.guests.find((x) => x.id === el.dataset.id); if (g) { g.gender = el.value; g.amount = priceGuest(el.value); } }); },
   'mem-name'(el) { if (need('edit')) { memberMap()[el.dataset.id].name = el.value.trim() || 'Không tên'; save('Đã lưu'); } },
   'mem-gender'(el) { if (need('edit')) { memberMap()[el.dataset.id].gender = el.value; save('Đã lưu'); } },
