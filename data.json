@@ -121,8 +121,8 @@
       "dues": {
         "81459fe1": {
           "expected": 700000,
-          "paid": 0,
-          "paidAt": "",
+          "paid": 2240000,
+          "paidAt": "2026-10-06",
           "note": ""
         },
         "0af6ab1d": {
@@ -138,8 +138,26 @@
           "note": ""
         }
       },
-      "purchases": [],
-      "expenses": [],
+      "purchases": [
+        {
+          "id": "w5k214a4",
+          "date": "2026-10-06",
+          "tubes": 1,
+          "perTube": 12,
+          "amount": 310000,
+          "buyer": "81459fe1",
+          "note": ""
+        }
+      ],
+      "expenses": [
+        {
+          "id": "2jrsqjz2",
+          "date": "2026-10-01",
+          "desc": "1 quả cầu lẻ của Quý",
+          "amount": 26000,
+          "payer": "fund"
+        }
+      ],
       "settled": {},
       "sessions": [
         {
@@ -152,11 +170,6 @@
             "9e78fa2c"
           ],
           "regulars": [
-            {
-              "memberId": "f99c4938",
-              "amount": 45000,
-              "paid": false
-            },
             {
               "memberId": "576f2f27",
               "amount": 40000,
@@ -194,7 +207,7 @@
             }
           ],
           "passAmount": 0,
-          "note": "thiếu Quý"
+          "note": ""
         },
         {
           "id": "861aca87",
@@ -426,6 +439,6 @@
       ]
     }
   },
-  "updatedAt": "2026-10-06T15:52:06.236Z",
-  "updatedBy": "seed"
+  "updatedAt": "2026-10-06T16:14:35.416Z",
+  "updatedBy": "admin"
 }
