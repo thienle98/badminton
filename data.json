@@ -1,0 +1,431 @@
+{
+  "version": 1,
+  "settings": {
+    "teamName": "Team Cầu Lông",
+    "defaultDues": 700000,
+    "shuttlesPerTube": 12,
+    "maxPerSession": 8,
+    "scheduleDays": [
+      2,
+      4,
+      6
+    ],
+    "prices": {
+      "regularMale": 45000,
+      "regularFemale": 40000,
+      "guestMale": 50000,
+      "guestFemale": 45000
+    },
+    "github": {},
+    "showDemoHint": true
+  },
+  "members": [
+    {
+      "id": "81459fe1",
+      "name": "Thiên",
+      "type": "fixed",
+      "gender": "M",
+      "phone": "",
+      "active": true
+    },
+    {
+      "id": "0af6ab1d",
+      "name": "Tùng",
+      "type": "fixed",
+      "gender": "M",
+      "phone": "",
+      "active": true
+    },
+    {
+      "id": "9e78fa2c",
+      "name": "Đạt",
+      "type": "fixed",
+      "gender": "M",
+      "phone": "",
+      "active": true
+    },
+    {
+      "id": "f99c4938",
+      "name": "Quý",
+      "type": "regular",
+      "gender": "M",
+      "phone": "",
+      "active": true
+    },
+    {
+      "id": "67dce62c",
+      "name": "Bảo",
+      "type": "regular",
+      "gender": "M",
+      "phone": "",
+      "active": true
+    },
+    {
+      "id": "4a1c24a9",
+      "name": "Sửu",
+      "type": "regular",
+      "gender": "M",
+      "phone": "",
+      "active": true
+    },
+    {
+      "id": "c3b83e2c",
+      "name": "Ngọc Gia",
+      "type": "regular",
+      "gender": "F",
+      "phone": "",
+      "active": true
+    },
+    {
+      "id": "576f2f27",
+      "name": "Ngọc Phúc",
+      "type": "regular",
+      "gender": "F",
+      "phone": "",
+      "active": true
+    }
+  ],
+  "users": [
+    {
+      "id": "3f98306e",
+      "username": "admin",
+      "name": "Thiên",
+      "role": "admin",
+      "memberId": "81459fe1",
+      "salt": "d4c3e1b0",
+      "hash": "19e9f17b8293d8bb49194df042b2da838d86a13f87b071b9274df1b368375665"
+    },
+    {
+      "id": "2efbcd19",
+      "username": "tung",
+      "name": "Tùng",
+      "role": "editor",
+      "memberId": "0af6ab1d",
+      "salt": "d35fad1b",
+      "hash": "889fbbffd20979c7b6783f9e683c0dcbfb84c119e3981759b199f4d81a1b0a37"
+    },
+    {
+      "id": "796fba81",
+      "username": "dat",
+      "name": "Đạt",
+      "role": "viewer",
+      "memberId": "9e78fa2c",
+      "salt": "bf54e8f6",
+      "hash": "8322a4a696a51c80f7de8abe837c4254de153e68b008fe92c8cfb73339f414ad"
+    }
+  ],
+  "months": {
+    "2026-10": {
+      "courtFee": 2240000,
+      "openingShuttles": 13,
+      "dues": {
+        "81459fe1": {
+          "expected": 700000,
+          "paid": 0,
+          "paidAt": "",
+          "note": ""
+        },
+        "0af6ab1d": {
+          "expected": 700000,
+          "paid": 0,
+          "paidAt": "",
+          "note": ""
+        },
+        "9e78fa2c": {
+          "expected": 700000,
+          "paid": 0,
+          "paidAt": "",
+          "note": ""
+        }
+      },
+      "purchases": [],
+      "expenses": [],
+      "settled": {},
+      "sessions": [
+        {
+          "id": "8f34cb2e",
+          "date": "2026-10-01",
+          "status": "play",
+          "shuttles": 5,
+          "fixed": [
+            "81459fe1",
+            "9e78fa2c"
+          ],
+          "regulars": [
+            {
+              "memberId": "f99c4938",
+              "amount": 45000,
+              "paid": false
+            },
+            {
+              "memberId": "576f2f27",
+              "amount": 40000,
+              "paid": true
+            }
+          ],
+          "guests": [
+            {
+              "id": "042cb4d8",
+              "name": "",
+              "gender": "M",
+              "amount": 50000,
+              "paid": true
+            },
+            {
+              "id": "89cc6e7b",
+              "name": "",
+              "gender": "M",
+              "amount": 50000,
+              "paid": true
+            },
+            {
+              "id": "a10ed596",
+              "name": "",
+              "gender": "M",
+              "amount": 50000,
+              "paid": true
+            },
+            {
+              "id": "b3ca19e3",
+              "name": "",
+              "gender": "F",
+              "amount": 45000,
+              "paid": true
+            }
+          ],
+          "passAmount": 0,
+          "note": "thiếu Quý"
+        },
+        {
+          "id": "861aca87",
+          "date": "2026-10-03",
+          "status": "play",
+          "shuttles": 7,
+          "fixed": [
+            "81459fe1",
+            "0af6ab1d",
+            "9e78fa2c"
+          ],
+          "regulars": [
+            {
+              "memberId": "67dce62c",
+              "amount": 45000,
+              "paid": false
+            }
+          ],
+          "guests": [
+            {
+              "id": "48ae1f28",
+              "name": "",
+              "gender": "M",
+              "amount": 50000,
+              "paid": true
+            },
+            {
+              "id": "da37e939",
+              "name": "",
+              "gender": "M",
+              "amount": 50000,
+              "paid": true
+            },
+            {
+              "id": "3f38b690",
+              "name": "",
+              "gender": "F",
+              "amount": 45000,
+              "paid": true
+            },
+            {
+              "id": "50f4e60e",
+              "name": "",
+              "gender": "F",
+              "amount": 45000,
+              "paid": true
+            }
+          ],
+          "passAmount": 0,
+          "note": "thiếu bảo"
+        },
+        {
+          "id": "320483c7",
+          "date": "2026-10-06",
+          "status": "play",
+          "shuttles": 9,
+          "fixed": [
+            "81459fe1",
+            "0af6ab1d"
+          ],
+          "regulars": [
+            {
+              "memberId": "67dce62c",
+              "amount": 45000,
+              "paid": false
+            }
+          ],
+          "guests": [
+            {
+              "id": "041c5299",
+              "name": "",
+              "gender": "M",
+              "amount": 50000,
+              "paid": true
+            },
+            {
+              "id": "79e6a3dc",
+              "name": "",
+              "gender": "M",
+              "amount": 50000,
+              "paid": true
+            },
+            {
+              "id": "aa97f4ba",
+              "name": "",
+              "gender": "M",
+              "amount": 50000,
+              "paid": true
+            },
+            {
+              "id": "c312cc56",
+              "name": "",
+              "gender": "M",
+              "amount": 50000,
+              "paid": true
+            },
+            {
+              "id": "ff90ab41",
+              "name": "",
+              "gender": "M",
+              "amount": 50000,
+              "paid": true
+            }
+          ],
+          "passAmount": 0,
+          "note": "thiếu bảo"
+        },
+        {
+          "id": "c5cb9ba3",
+          "date": "2026-10-08",
+          "status": "play",
+          "shuttles": 0,
+          "fixed": [],
+          "regulars": [],
+          "guests": [],
+          "passAmount": 0,
+          "note": ""
+        },
+        {
+          "id": "0088ddf2",
+          "date": "2026-10-10",
+          "status": "play",
+          "shuttles": 0,
+          "fixed": [],
+          "regulars": [],
+          "guests": [],
+          "passAmount": 0,
+          "note": ""
+        },
+        {
+          "id": "169a58b1",
+          "date": "2026-10-13",
+          "status": "play",
+          "shuttles": 0,
+          "fixed": [],
+          "regulars": [],
+          "guests": [],
+          "passAmount": 0,
+          "note": ""
+        },
+        {
+          "id": "61cfb8ed",
+          "date": "2026-10-15",
+          "status": "play",
+          "shuttles": 0,
+          "fixed": [],
+          "regulars": [],
+          "guests": [],
+          "passAmount": 0,
+          "note": ""
+        },
+        {
+          "id": "e1f9b5ed",
+          "date": "2026-10-17",
+          "status": "play",
+          "shuttles": 0,
+          "fixed": [],
+          "regulars": [],
+          "guests": [],
+          "passAmount": 0,
+          "note": ""
+        },
+        {
+          "id": "f0b01d9a",
+          "date": "2026-10-20",
+          "status": "play",
+          "shuttles": 0,
+          "fixed": [],
+          "regulars": [],
+          "guests": [],
+          "passAmount": 0,
+          "note": ""
+        },
+        {
+          "id": "fa6e9fc9",
+          "date": "2026-10-22",
+          "status": "play",
+          "shuttles": 0,
+          "fixed": [],
+          "regulars": [],
+          "guests": [],
+          "passAmount": 0,
+          "note": ""
+        },
+        {
+          "id": "16780972",
+          "date": "2026-10-24",
+          "status": "play",
+          "shuttles": 0,
+          "fixed": [],
+          "regulars": [],
+          "guests": [],
+          "passAmount": 0,
+          "note": ""
+        },
+        {
+          "id": "2f1c3de1",
+          "date": "2026-10-27",
+          "status": "play",
+          "shuttles": 0,
+          "fixed": [],
+          "regulars": [],
+          "guests": [],
+          "passAmount": 0,
+          "note": ""
+        },
+        {
+          "id": "fb1bf658",
+          "date": "2026-10-29",
+          "status": "play",
+          "shuttles": 0,
+          "fixed": [],
+          "regulars": [],
+          "guests": [],
+          "passAmount": 0,
+          "note": ""
+        },
+        {
+          "id": "530790f5",
+          "date": "2026-10-31",
+          "status": "play",
+          "shuttles": 0,
+          "fixed": [],
+          "regulars": [],
+          "guests": [],
+          "passAmount": 0,
+          "note": ""
+        }
+      ]
+    }
+  },
+  "updatedAt": "2026-10-06T15:52:06.236Z",
+  "updatedBy": "seed"
+}
