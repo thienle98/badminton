@@ -323,7 +323,7 @@
           "fixed": [],
           "regulars": [],
           "guests": [],
-          "passAmount": 0,
+          "passAmount": 160000,
           "note": ""
         },
         {
@@ -439,6 +439,6 @@
       ]
     }
   },
-  "updatedAt": "2026-10-08T17:03:43.214Z",
+  "updatedAt": "2026-10-08T17:03:52.558Z",
   "updatedBy": "admin"
 }
