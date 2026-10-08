@@ -147,6 +147,15 @@
           "amount": 310000,
           "buyer": "81459fe1",
           "note": ""
+        },
+        {
+          "id": "2vo7knp5",
+          "date": "2026-10-09",
+          "tubes": 1,
+          "perTube": 12,
+          "amount": 305000,
+          "buyer": "81459fe1",
+          "note": ""
         }
       ],
       "expenses": [
@@ -439,6 +448,6 @@
       ]
     }
   },
-  "updatedAt": "2026-10-08T17:03:52.558Z",
+  "updatedAt": "2026-10-08T17:05:22.823Z",
   "updatedBy": "admin"
 }
