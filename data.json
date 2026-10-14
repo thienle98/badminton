@@ -399,6 +399,13 @@
               "gender": "M",
               "amount": 50000,
               "paid": true
+            },
+            {
+              "id": "1xtncdqr",
+              "name": "",
+              "gender": "M",
+              "amount": 50000,
+              "paid": true
             }
           ],
           "passAmount": 0,
@@ -536,6 +543,6 @@
       ]
     }
   },
-  "updatedAt": "2026-10-14T14:33:11.538Z",
+  "updatedAt": "2026-10-14T14:35:05.569Z",
   "updatedBy": "admin"
 }
