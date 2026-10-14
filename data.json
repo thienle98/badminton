@@ -409,8 +409,38 @@
           "date": "2026-10-13",
           "status": "play",
           "shuttles": 5,
-          "fixed": [],
-          "regulars": [],
+          "fixed": [
+            "81459fe1",
+            "0af6ab1d",
+            "9e78fa2c"
+          ],
+          "regulars": [
+            {
+              "memberId": "f99c4938",
+              "amount": 45000,
+              "paid": false
+            },
+            {
+              "memberId": "67dce62c",
+              "amount": 45000,
+              "paid": false
+            },
+            {
+              "memberId": "c3b83e2c",
+              "amount": 40000,
+              "paid": false
+            },
+            {
+              "memberId": "576f2f27",
+              "amount": 40000,
+              "paid": false
+            },
+            {
+              "memberId": "vh7z5bwk",
+              "amount": 45000,
+              "paid": false
+            }
+          ],
           "guests": [],
           "passAmount": 0,
           "note": ""
@@ -506,6 +536,6 @@
       ]
     }
   },
-  "updatedAt": "2026-10-14T14:31:53.617Z",
+  "updatedAt": "2026-10-14T14:32:12.714Z",
   "updatedBy": "admin"
 }
