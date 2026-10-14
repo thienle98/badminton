@@ -391,7 +391,7 @@
               "name": "",
               "gender": "F",
               "amount": 45000,
-              "paid": false
+              "paid": true
             },
             {
               "id": "9g46e0ax",
@@ -506,6 +506,6 @@
       ]
     }
   },
-  "updatedAt": "2026-10-14T14:29:30.858Z",
+  "updatedAt": "2026-10-14T14:29:38.114Z",
   "updatedBy": "admin"
 }
