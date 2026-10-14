@@ -372,17 +372,17 @@
             {
               "memberId": "d5qg0s61",
               "amount": 45000,
-              "paid": false
+              "paid": true
             },
             {
               "memberId": "vh7z5bwk",
               "amount": 45000,
-              "paid": false
+              "paid": true
             },
             {
               "memberId": "9a6lzsau",
               "amount": 40000,
-              "paid": false
+              "paid": true
             }
           ],
           "guests": [
@@ -506,6 +506,6 @@
       ]
     }
   },
-  "updatedAt": "2026-10-14T14:28:53.618Z",
+  "updatedAt": "2026-10-14T14:29:30.858Z",
   "updatedBy": "admin"
 }
