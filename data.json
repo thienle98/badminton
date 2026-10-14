@@ -91,6 +91,14 @@
       "gender": "M",
       "phone": "",
       "active": true
+    },
+    {
+      "id": "vh7z5bwk",
+      "name": "Tuấn",
+      "type": "regular",
+      "gender": "M",
+      "phone": "",
+      "active": true
     }
   ],
   "users": [
@@ -459,6 +467,6 @@
       ]
     }
   },
-  "updatedAt": "2026-10-14T14:27:47.452Z",
+  "updatedAt": "2026-10-14T14:27:54.458Z",
   "updatedBy": "admin"
 }
