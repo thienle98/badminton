@@ -392,6 +392,13 @@
               "gender": "F",
               "amount": 45000,
               "paid": false
+            },
+            {
+              "id": "9g46e0ax",
+              "name": "",
+              "gender": "M",
+              "amount": 50000,
+              "paid": false
             }
           ],
           "passAmount": 0,
@@ -499,6 +506,6 @@
       ]
     }
   },
-  "updatedAt": "2026-10-14T14:28:26.010Z",
+  "updatedAt": "2026-10-14T14:28:53.618Z",
   "updatedBy": "admin"
 }
