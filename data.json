@@ -363,7 +363,7 @@
           "id": "0088ddf2",
           "date": "2026-10-10",
           "status": "play",
-          "shuttles": 6,
+          "shuttles": 7,
           "fixed": [
             "81459fe1",
             "0af6ab1d"
@@ -506,6 +506,6 @@
       ]
     }
   },
-  "updatedAt": "2026-10-14T14:29:43.161Z",
+  "updatedAt": "2026-10-14T14:29:49.706Z",
   "updatedBy": "admin"
 }
