@@ -340,7 +340,10 @@
           "date": "2026-10-10",
           "status": "play",
           "shuttles": 0,
-          "fixed": [],
+          "fixed": [
+            "81459fe1",
+            "0af6ab1d"
+          ],
           "regulars": [],
           "guests": [],
           "passAmount": 0,
@@ -448,6 +451,6 @@
       ]
     }
   },
-  "updatedAt": "2026-10-08T17:05:22.823Z",
+  "updatedAt": "2026-10-14T14:27:17.002Z",
   "updatedBy": "admin"
 }
