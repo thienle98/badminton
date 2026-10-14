@@ -83,6 +83,14 @@
       "gender": "F",
       "phone": "",
       "active": true
+    },
+    {
+      "id": "d5qg0s61",
+      "name": "Hùng",
+      "type": "regular",
+      "gender": "M",
+      "phone": "",
+      "active": true
     }
   ],
   "users": [
@@ -451,6 +459,6 @@
       ]
     }
   },
-  "updatedAt": "2026-10-14T14:27:17.002Z",
+  "updatedAt": "2026-10-14T14:27:47.452Z",
   "updatedBy": "admin"
 }
