@@ -428,12 +428,12 @@
             {
               "memberId": "c3b83e2c",
               "amount": 40000,
-              "paid": false
+              "paid": true
             },
             {
               "memberId": "576f2f27",
               "amount": 40000,
-              "paid": false
+              "paid": true
             },
             {
               "memberId": "vh7z5bwk",
@@ -536,6 +536,6 @@
       ]
     }
   },
-  "updatedAt": "2026-10-14T14:33:04.850Z",
+  "updatedAt": "2026-10-14T14:33:11.538Z",
   "updatedBy": "admin"
 }
