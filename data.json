@@ -398,7 +398,7 @@
               "name": "",
               "gender": "M",
               "amount": 50000,
-              "paid": false
+              "paid": true
             }
           ],
           "passAmount": 0,
@@ -536,6 +536,6 @@
       ]
     }
   },
-  "updatedAt": "2026-10-14T14:32:12.714Z",
+  "updatedAt": "2026-10-14T14:32:46.322Z",
   "updatedBy": "admin"
 }
