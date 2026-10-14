@@ -378,6 +378,11 @@
               "memberId": "vh7z5bwk",
               "amount": 45000,
               "paid": false
+            },
+            {
+              "memberId": "9a6lzsau",
+              "amount": 40000,
+              "paid": false
             }
           ],
           "guests": [
@@ -494,6 +499,6 @@
       ]
     }
   },
-  "updatedAt": "2026-10-14T14:28:13.258Z",
+  "updatedAt": "2026-10-14T14:28:26.010Z",
   "updatedBy": "admin"
 }
